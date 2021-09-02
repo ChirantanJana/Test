@@ -26,9 +26,9 @@ node {
         dockerimage = sh "docker-compose build"
     }
     stage('deploy'){
-        
+        /*
         CONTAINER = test_web
-        /* = sh '(docker inspect --format= "{{  .state.Running}}" $CONTAINER  2> /dev/null)'
+        RUNNING = sh '(docker inspect --format= "{{  .state.Running}}" $CONTAINER  2> /dev/null)'
         script {
                     if ($RUNNING == 1){
                         echo "'$CONTAINER' does not exist"}
