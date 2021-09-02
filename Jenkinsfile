@@ -30,10 +30,10 @@ node {
         CONTAINER = test_web
         RUNNING = sh '(docker inspect --format= "{{  .state.Running}}" $CONTAINER  2> /dev/null)'
         script {
-                    if ($RUNNING == 1): 
-                        echo "'$CONTAINER' does not exist"
-                    else:
-                        sh "docker rm -f $CONTAINER"
+                    if ($RUNNING == 1){
+                        echo "'$CONTAINER' does not exist"}
+                    else{
+                        sh "docker rm -f $CONTAINER"}
                 }
         echo "......Deployment phase start......"
         sh "docker run --publish 8000:8000 test_web"
