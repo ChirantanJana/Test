@@ -27,7 +27,7 @@ node {
     }
     stage('deploy'){
         CONTAINER = test_web
-        RUNNING = $(docker inspect --format= "{{  .state.Running}}" $CONTAINER  2> /dev/null)
+        RUNNING = sh '(docker inspect --format= "{{  .state.Running}}" $CONTAINER  2> /dev/null)'
         if[$? -eq 1 ]: then
             echo "'$CONTAINER' does not exist"
         else
