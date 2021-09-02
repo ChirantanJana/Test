@@ -26,9 +26,14 @@ node {
         dockerimage = sh "docker-compose build"
     }
     stage('deploy'){
-        //CONTAINER = dockerimage
+        CONTAINER = test_web
+        RUNNING = $(docker inspect --format= "{{  .state.Running}}" $CONTAINER  2> /dev/null)
+        if[$? -eq 1 ]: then
+            echo "'$CONTAINER' does not exist"
+        else
+            sh "docker rm -f $CONTAINER"
+        fi
         echo "......Deployment phase start......"
-        sh "docker run -d test_web"
         sh "docker run --publish 8180:8000 test_web"
         echo "...deployed here: 127.0.0.1.8180 " 
     }
