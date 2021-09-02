@@ -29,7 +29,7 @@ node {
         
         CONTAINER = test_web
         RUNNING = sh '(docker inspect --format= "{{  .state.Running}}" $CONTAINER  2> /dev/null)'
-        sh "if[$? -eq 1 ]: then
+    sh "if[$? -eq 1 ]: then
             echo "'$CONTAINER' does not exist"
         else
             sh "docker rm -f $CONTAINER"
