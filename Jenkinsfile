@@ -13,10 +13,10 @@ node {
             virtualenv venv
         fi'''
         sh ". venv/bin/activate"*/
-        sh "pip install django"
+       // sh "pip install django"
         sh "pip install -r requirement.txt"
-        sh "python3 manage.py makemigrations"
-        sh "python3 manage.py migrate"
+        //sh "python3 manage.py makemigrations"
+        //sh "python3 manage.py migrate"
     }
     stage('test')
     {
@@ -28,7 +28,7 @@ node {
     stage('deploy'){
         //CONTAINER = dockerimage
         echo "......Deployment phase start......"
-        sh "docker run -d -p 8180:8080 --name test2_web test2_web"
+        sh "docker run -d -p 8180:8080 --name test_web test_web"
         echo "...deployed here: 127.0.0.1.8180 " 
     }
 }
