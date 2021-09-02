@@ -29,7 +29,7 @@ node {
         //CONTAINER = dockerimage
         echo "......Deployment phase start......"
         sh "docker run -d test_web"
-        sh "docker run --publish 8000:8000 test_web"
-        echo "...deployed here: 127.0.0.1.8000 " 
+        sh "docker run --publish 8180:8000 test_web"
+        echo "...deployed here: 127.0.0.1.8180 " 
     }
 }
