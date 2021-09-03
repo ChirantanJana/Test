@@ -12,8 +12,6 @@ node {
     stage('Preparation'){
     sh "pip install -r requirement.txt"
     }
- 
-    }
     stage('test')
     {
         sh "python3 manage.py test "
