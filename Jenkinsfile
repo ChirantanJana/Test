@@ -36,7 +36,7 @@ node {
                         sh "docker rm -f $CONTAINER"}
                 }*/
         echo "......Deployment phase start......"
-        sh "docker run --publish 8000:8000 test_web"
+        sh "docker run --publish 8000:8000 -d test_web"
         echo "...deployed here: 127.0.0.1.8000 " 
     }
 }
